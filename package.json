@@ -1,29 +1,29 @@
 {
-  "name": "react-scaffold",
-  "version": "0.1.3",
+  "name": "react-component-template",
+  "version": "1.0.0",
   "description": "An npm module to create quick react components",
   "main": "index.js",
   "bin": {
-    "react-scaffold": "index.js"
+    "react-component-template": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fender-guy/react-scaffold.git"
+    "url": "https://github.com/chrismurphy01/react-component-template.git"
   },
   "keywords": [
     "react",
     "component",
     "scaffold"
   ],
-  "author": "Jeremy Hitchcock <whatthefuture@gmail.com> (https://github.com/fender-guy)",
+  "author": "Chris Murphy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fender-guy/react-scaffold/issues"
+    "url": "https://github.com/chrismurphy01/react-component-template/issues"
   },
-  "homepage": "https://github.com/fender-guy/react-scaffold",
+  "homepage": "https://github.com/chrismurphy01/react-component-template",
   "dependencies": {
     "mkdirp": "^0.5.0",
     "prompt": "^0.2.14"
