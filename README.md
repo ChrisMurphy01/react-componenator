@@ -1,4 +1,4 @@
-# react-component-template
+# react-componenator
 Quickly create component templates for React and scss
 
 ## Generated output
@@ -73,7 +73,7 @@ export default YourFileName;
 Install with
 
 ```
-npm install -g react-component-template
+npm install -g react-componenator
 ```
 
 Usage
@@ -82,7 +82,7 @@ From the command line navigate to the source directory, ie. cd ./src/components
 then type
 
 ```
-react-component-template
+react-componenator
 ```
 
 Give your component a name when promted. (MyNewComponent)

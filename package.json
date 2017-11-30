@@ -1,5 +1,5 @@
 {
-  "name": "react-component-generator",
+  "name": "react-componenator",
   "version": "1.0.0",
   "description": "An npm module to create quick react components",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chrismurphy01/react-component-template.git"
+    "url": "https://github.com/chrismurphy01/react-componenator.git"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
   "author": "Chris Murphy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chrismurphy01/react-component-template/issues"
+    "url": "https://github.com/chrismurphy01/react-componenator/issues"
   },
-  "homepage": "https://github.com/chrismurphy01/react-component-template",
+  "homepage": "https://github.com/chrismurphy01/react-componenator",
   "dependencies": {
     "mkdirp": "^0.5.0",
     "prompt": "^0.2.14"
