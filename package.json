@@ -1,5 +1,5 @@
 {
-  "name": "react-component-template",
+  "name": "react-component-generator",
   "version": "1.0.0",
   "description": "An npm module to create quick react components",
   "main": "index.js",
