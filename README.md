@@ -82,7 +82,7 @@ From the command line navigate to the source directory, ie. cd ./src/components
 then type
 
 ```
-react-componenator
+rc
 ```
 
 Give your component a name when promted. (MyNewComponent)

@@ -1,10 +1,10 @@
 {
   "name": "react-componenator",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "An npm module to create quick react components",
   "main": "index.js",
   "bin": {
-    "react-component-template": "index.js"
+    "rc": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
