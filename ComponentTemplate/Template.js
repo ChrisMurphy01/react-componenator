@@ -43,7 +43,7 @@ class {{displayName}} extends Component {
 };
 
 {{displayName}}.propTypes = {
-    example: React.PropTypes.string
+    example: PropTypes.string
 };
 
 {{displayName}}.displayName = '{{displayName}}';

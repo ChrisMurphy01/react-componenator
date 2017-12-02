@@ -11,7 +11,9 @@ YourFileName /
 
 **YourFileName.js**
 
-```import React, { Component } from 'react'
+```
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './YourFileName.scss'
 
@@ -51,11 +53,11 @@ class YourFileName extends Component {
 }
 
 YourFileName.defaultProps = {
-    defaultPropGoesHere: 'default prop'
+    example: 'xxx'
 };
 
 YourFileName.propTypes = {
-    example: React.PropTypes.string
+    example: PropTypes.string
 };
 
 YourFileName.displayName = 'YourFileName';
@@ -66,7 +68,7 @@ export default YourFileName;
 **YourFileName.scss**
 
 ```
-@import '../common/variables';
+@import './src/styles/variables';
 ```
 
 
@@ -78,12 +80,28 @@ npm install -g react-componenator
 
 Usage
 
-From the command line navigate to the source directory, ie. cd ./src/components
-then type
-
+Run from the command line with
 ```
 rc
 ```
 
-Give your component a name when promted. (MyNewComponent)
+You can use the provided template, or create a custom template.
+
+To create a custom template; cd to your components folder
+```
+cd src/components
+```
+then create the template folder
+
+```
+rc
+ComponentTemplate
+```
+The files in the folder will now be used as the template. Modify to suit your needs.
+
+Wherever you want the component name to appear file, add
+```
+{{displayName}}
+```
+
 
