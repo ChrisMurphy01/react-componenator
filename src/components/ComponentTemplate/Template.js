@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './{{displayName}}.scss'
+import styles from './ComponentTemplate.scss'
 
 /**
- * @module {{displayName}}
+ * @module ComponentTemplate
  */
-class {{displayName}} extends Component {
+class ComponentTemplate extends Component {
 
     constructor(props) {
         super(props);
@@ -38,14 +38,14 @@ class {{displayName}} extends Component {
     }
 }
 
-{{displayName}}.defaultProps = {
+ComponentTemplate.defaultProps = {
     defaultPropGoesHere: 'default prop'
 };
 
-{{displayName}}.propTypes = {
+ComponentTemplate.propTypes = {
     example: PropTypes.string
 };
 
-{{displayName}}.displayName = '{{displayName}}';
+ComponentTemplate.displayName = 'ComponentTemplate';
 
-export default {{displayName}};
+export default ComponentTemplate;

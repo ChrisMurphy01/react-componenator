@@ -7,17 +7,19 @@ var read = fs.readFileSync;
 var mkdirp = require('mkdirp');
 var path = require('path');
 
+var componenetPath = 'src/components/';
+
 var jsTemplate;
 var scssTemplate;
 
-var localTemplateExists = fs.existsSync('./ComponentTemplate');
+var localTemplateExists = fs.existsSync('/' + componenetPath + './ComponentTemplate');
 
 if (localTemplateExists) {
-  jsTemplate = read(path.join(process.cwd(), '/ComponentTemplate/Template.js'), 'utf8');
-  scssTemplate = read(path.join(process.cwd(), '/ComponentTemplate/Template.scss'), 'utf8');
+  jsTemplate = read(path.join(process.cwd(), '/' + componenetPath + '/ComponentTemplate/Template.js'), 'utf8');
+  scssTemplate = read(path.join(process.cwd(), componenetPath + '/ComponentTemplate/Template.scss'), 'utf8');
 } else {
-  jsTemplate = read(__dirname + '/ComponentTemplate/Template.js', 'utf8');
-  scssTemplate = read(__dirname + '/ComponentTemplate/Template.scss', 'utf8');
+  jsTemplate = read(__dirname + '/' + componenetPath + '/ComponentTemplate/Template.js', 'utf8');
+  scssTemplate = read(__dirname + '/' + componenetPath + '/ComponentTemplate/Template.scss', 'utf8');
 }
 
 var filename;
@@ -65,21 +67,22 @@ var init = function () {
       return;
     }
 
-    mkdirp.sync(componentName);
+    mkdirp.sync(componenetPath + componentName);
 
     console.log('writing style directory');
-    scssTemplate = scssTemplate.replace(/{{displayName}}/g, capitalize(componentName));
+    scssTemplate = scssTemplate.replace(/ComponentTemplate/g, capitalize(componentName));
+    console.log(componenetPath + componentName + '/' + componentName + '.scss');
 
-    fs.writeFile(componentName + '/' + componentName + '.scss', scssTemplate, function (err) {
+    fs.writeFile(componenetPath + componentName + '/' + componentName + '.scss', scssTemplate, function (err) {
       if (err) return console.log(err);
-      console.log(componentName + '/' + componentName + '.scss');
+      console.log(componenetPath + componentName + '/' + componentName + '.scss');
     });
 
-    jsTemplate = jsTemplate.replace(/{{displayName}}/g, capitalize(componentName));
+    jsTemplate = jsTemplate.replace(/ComponentTemplate/g, capitalize(componentName));
 
-    fs.writeFile(componentName + '/' + componentName + '.js', jsTemplate, function (err) {
+    fs.writeFile(componenetPath + componentName + '/' + componentName + '.js', jsTemplate, function (err) {
       if (err) return console.log(err);
-      console.log(componentName + '/' + componentName + '.js');
+      console.log(componenetPath + componentName + '/' + componentName + '.js');
     });
   }
 }
