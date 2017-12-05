@@ -68,6 +68,8 @@ var init = function () {
     mkdirp.sync(componentName);
 
     console.log('writing style directory');
+    scssTemplate = scssTemplate.replace(/{{displayName}}/g, capitalize(componentName));
+
     fs.writeFile(componentName + '/' + componentName + '.scss', scssTemplate, function (err) {
       if (err) return console.log(err);
       console.log(componentName + '/' + componentName + '.scss');
