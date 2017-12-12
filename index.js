@@ -65,7 +65,7 @@ var init = function () {
       if (!file) {
         return console.log('No files found')
       }
-      console.log('FILE:', path.join(process.cwd(), '/ComponentTemplate/' + file))
+      // console.log('FILE:', path.join(process.cwd(), '/ComponentTemplate/' + file))
       fileTemplate = read(path.join(process.cwd(), '/ComponentTemplate/' + file), 'utf8');
 
       fileTemplate = fileTemplate.replace(/ComponentTemplate/g, componentName);
@@ -73,7 +73,7 @@ var init = function () {
 
       fs.writeFile(newComponentPath + '/' + filename, fileTemplate, function (err) {
         if (err) return console.log(err);
-        console.log(newComponentPath);
+        console.log(newComponentPath + '/' + filename);
       });
     })
   }
