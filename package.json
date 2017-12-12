@@ -1,6 +1,6 @@
 {
   "name": "react-componenator",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "An npm module to create quick react components",
   "main": "index.js",
   "bin": {

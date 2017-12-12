@@ -7,23 +7,9 @@ var read = fs.readFileSync;
 var mkdirp = require('mkdirp');
 var path = require('path');
 
-var componenetPath = 'src/components/';
-
-var jsTemplate;
-var scssTemplate;
-
-var localTemplateExists = fs.existsSync('/' + componenetPath + './ComponentTemplate');
-
-if (localTemplateExists) {
-  jsTemplate = read(path.join(process.cwd(), '/' + componenetPath + '/ComponentTemplate/Template.js'), 'utf8');
-  scssTemplate = read(path.join(process.cwd(), componenetPath + '/ComponentTemplate/Template.scss'), 'utf8');
-} else {
-  jsTemplate = read(__dirname + '/' + componenetPath + '/ComponentTemplate/Template.js', 'utf8');
-  scssTemplate = read(__dirname + '/' + componenetPath + '/ComponentTemplate/Template.scss', 'utf8');
-}
-
 var filename;
 var componentName;
+var componentPath;
 var styleExists = false;
 
 var init = function () {
@@ -31,6 +17,14 @@ var init = function () {
 
   var schema = {
     properties: {
+      path: {
+        description: 'Path',
+        type: 'string',
+        pattern: /^[$A-Z_][0-9A-Z/\_$]*$/i,
+        message: 'example: "src/components/atoms"',
+        default: '',
+        required: false
+      },
       name: {
         description: 'Name',
         type: 'string',
@@ -45,7 +39,8 @@ var init = function () {
   prompt.get(schema, function (err, result) {
     if (err) { return onErr(err) }
     componentName = result.name;
-    write(componentName);
+    componentPath = result.path + '/';
+    write(componentName, componentPath);
   });
 
   function onErr(err) {
@@ -53,13 +48,8 @@ var init = function () {
     return 1;
   }
 
-
-  function capitalize(s) {
-    return s[0].toUpperCase() + s.slice(1);
-  }
-
   function write(componentName) {
-    var componentName = capitalize(componentName);
+    // var componentName = capitalize(componentName);
 
     // check if component already exists in current directory
     if (fs.existsSync(componentName)) {
@@ -67,23 +57,25 @@ var init = function () {
       return;
     }
 
-    mkdirp.sync(componenetPath + componentName);
+    console.log('New component path', path.join(process.cwd(), '/' + componentPath));
+    var newComponentPath = componentPath + componentName
+    mkdirp.sync(newComponentPath);
 
-    console.log('writing style directory');
-    scssTemplate = scssTemplate.replace(/ComponentTemplate/g, capitalize(componentName));
-    console.log(componenetPath + componentName + '/' + componentName + '.scss');
+    fs.readdirSync(path.join(process.cwd(), '/ComponentTemplate')).forEach(file => {
+      if (!file) {
+        return console.log('No files found')
+      }
+      console.log('FILE:', path.join(process.cwd(), '/ComponentTemplate/' + file))
+      fileTemplate = read(path.join(process.cwd(), '/ComponentTemplate/' + file), 'utf8');
 
-    fs.writeFile(componenetPath + componentName + '/' + componentName + '.scss', scssTemplate, function (err) {
-      if (err) return console.log(err);
-      console.log(componenetPath + componentName + '/' + componentName + '.scss');
-    });
+      fileTemplate = fileTemplate.replace(/ComponentTemplate/g, componentName);
+      filename = file.replace(/ComponentTemplate/g, componentName)
 
-    jsTemplate = jsTemplate.replace(/ComponentTemplate/g, capitalize(componentName));
-
-    fs.writeFile(componenetPath + componentName + '/' + componentName + '.js', jsTemplate, function (err) {
-      if (err) return console.log(err);
-      console.log(componenetPath + componentName + '/' + componentName + '.js');
-    });
+      fs.writeFile(newComponentPath + '/' + filename, fileTemplate, function (err) {
+        if (err) return console.log(err);
+        console.log(newComponentPath);
+      });
+    })
   }
 }
 
