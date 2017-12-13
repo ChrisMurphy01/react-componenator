@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {
-  PureComponent
-} from 'react'
+import React, { PureComponent } from 'react'
 import ComponentTemplateElement from './ComponentTemplate.styled.js'
 
 class ComponentTemplate extends PureComponent {
@@ -14,7 +12,7 @@ class ComponentTemplate extends PureComponent {
 
 // OR
 
-const ComponentTemplate = ({}) => {
+const ComponentTemplate = () => {
   return ()
 }
 

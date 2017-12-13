@@ -16,9 +16,9 @@ const wrapperMount = (props = {}) => {
 }
 
 it('Match Snapshot', () => {
-  expect(wrapperShallow({  })).toMatchSnapshot()
+  expect(wrapperShallow({ })).toMatchSnapshot()
 })
 
 it('propeties are passed down', () => {
-  let node = wrapperMount({  }).getDOMNode()
+  let node = wrapperMount({ }).getDOMNode()
 })
