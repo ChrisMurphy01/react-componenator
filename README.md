@@ -1,107 +1,27 @@
 # react-componenator
-Quickly create component templates for React and scss
 
-## Generated output
-YourFileName /
+It's really bad name. I'm sorry.
 
----YourFileName.js
+## What it does
 
----YourFileName.scss
+Creates a templated folder & files for your React Components (although it can be ued for anything)
 
+## Install
 
-**YourFileName.js**
+<pre>$ npm i -g react-componenator</pre>
 
-```
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+## How it works
 
-import styles from './YourFileName.scss'
+In your root folder create a folder called `ComponentTemplate`.
+All folders, files and text in files will be copied to your destination folder and whereever the `ComponentTemplate` string appears, including file and folder names, it will be replaced by your component name.
 
-/**
- * @module YourFileName
- */
-class YourFileName extends Component {
+## Usage
 
-    constructor(props) {
-        super(props);
+The npm module has a shortcut `rc` command.
+From the root of your repo
 
-        this.state = {
-            exampleState : 'initial state'
-        };
-    }
+<pre>$ rc</pre>
+<pre>prompt: Path: [destination folder eg 'src/components']</pre>
+<pre>prompt: Name: (Component) [Component name eg 'Button']</pre>
 
-    componentWillMount() {
-    }
-
-    componentDidMount() {
-    }
-
-    componentWillUpdate() {
-    }
-
-    componentDidUpdate() {
-    }
-
-    componentWillUnmount() {
-    }
-
-    render() {
-        return (
-            <div></div>
-        );
-    }
-}
-
-YourFileName.defaultProps = {
-    example: 'xxx'
-};
-
-YourFileName.propTypes = {
-    example: PropTypes.string
-};
-
-YourFileName.displayName = 'YourFileName';
-
-export default YourFileName;
-```
-
-**YourFileName.scss**
-
-```
-@import './src/styles/variables';
-```
-
-
-Install with
-
-```
-npm install -g react-componenator
-```
-
-Usage
-
-Run from the command line with
-```
-rc
-```
-
-You can use the provided template, or create a custom template.
-
-To create a custom template; cd to your components folder
-```
-cd src/components
-```
-then create the template folder
-
-```
-rc
-ComponentTemplate
-```
-The files in the folder will now be used as the template. Modify to suit your needs.
-
-Wherever you want the component name to appear file, add
-```
-{{displayName}}
-```
-
-
+You can edit the files and folders as much as you like eg add test files, TypeScript etc.
