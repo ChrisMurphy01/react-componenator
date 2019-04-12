@@ -4,7 +4,7 @@ It's really bad name. I'm sorry.
 
 ## What it does
 
-Creates a templated folder & files for your React Components (although it can be ued for anything)
+Creates a templated folder & files for your React Components (although it can be used for anything)
 
 ## Install
 
